@@ -1,0 +1,88 @@
+/*
+Description
+
+The given are two positive integers Year and Month, the task is to find the number of days corresponding to each month of the given year where 1 is January, 2 is February, 3 is March, and so on.
+
+Note: The Input range of year: Minimum Year = 1900 and Maximum Year = 9999 i.e (1900<=Year<=9999). The Input range of month: Minimum Month = 12 and Maximum Year = 12 i.e (1<=month<=12) If the given year does not lie between the given range, output 0.
+
+Input Format
+
+The input consists of two lines. The first line contains an integer, which is the Year. The second line contains an integer, which is the Month.
+
+Output Format
+
+The output prints the number of days. Refer to the sample output
+
+Sample Input 1
+
+2000
+
+2
+
+Sample Output 1
+
+29 Days
+
+
+*/
+
+
+
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc = new Scanner(System.in);
+    int year = sc.nextInt();
+    int month = sc.nextInt();
+    if(year >= 1900 && year <= 9999)
+    {
+      switch(month)
+      {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+        	System.out.println("31 Days");
+        	break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+        	System.out.println("30 Days");
+        	break;
+        case 2:
+        	if(year % 400 == 0)
+            {
+              System.out.println("29 Days");
+            }
+        	else if(year % 100 == 0)
+            {
+              System.out.println("28 Days");
+            }
+        	else if(year % 4 == 0)
+            {
+              System.out.println("29 Days");
+            }
+        	else
+            {
+              System.out.println("28 Days");
+            }
+        	break;
+        default:
+        	System.out.println("Invalid");
+        	break;
+      }
+    }
+    else
+    {
+      System.out.println("0");
+    }
+    sc.close();
+  }
+}
