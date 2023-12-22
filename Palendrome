@@ -1,0 +1,33 @@
+package String;
+import java.util.Scanner;
+public class StringPalindrome 
+{
+	public String palendrome(String word)
+	{
+		String reverse = "";
+		for(int i=word.length()-1;i>=0;i--)
+		{
+			reverse = reverse + word.charAt(i); 
+		}
+		System.out.println("word : "+word);
+		System.out.println("Reverse : "+reverse);
+		if(word.equalsIgnoreCase(reverse))
+		{
+			return word+" is a Palendrome";
+		}
+		else
+		{
+			return word+" is not a Palindrome";
+		}
+	}
+	public static void main(String[] args)
+	{
+		StringPalindrome obj = new StringPalindrome();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a word");
+		String word = sc.next();
+		String result = obj.palendrome(word);
+		System.out.println(result);
+		sc.close();
+	}
+}
