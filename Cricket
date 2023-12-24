@@ -1,0 +1,93 @@
+/*
+Cricket:
+
+Praveen is crazy about IPL. He was watching Mumbai Indians vs. Chennai Super Kings final match. Mumbai won the toss and elected to bat first. 
+They finished batting with a score of X. Next, Chennai started to bat and scored Y runs in N number of balls. 
+Now, Praveen wants to calculate the run rate and check whether there is a probability for Chennai to win or not. 
+Help him calculate the run rate and check the probability.
+
+Input Format :
+
+Input consists of 4 integers.
+The first input corresponds to the total number of balls.
+The second input corresponds to the total number of runs.
+The third input corresponds to the number of runs scored.
+The fourth input corresponds to the number of balls bowled.
+
+Output Format:
+
+The first output corresponds to the total number of overs.
+The second output corresponds to the total number of overs finished.
+The third output corresponds to the current run rate.
+The fourth output corresponds to the total run rate.
+
+Sample Input 1:
+
+300
+375
+78
+45
+
+Sample Output 1:
+
+50
+7.3
+10.7
+7.5
+Eligible to Win
+
+Sample Input 2:
+
+300
+268
+23
+45
+
+Sample Output 2:
+
+50
+7.3
+3.2
+5.4
+Not Eligible to Win
+*/
+
+
+
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc = new Scanner(System.in);
+    int balls = sc.nextInt();
+    int runs = sc.nextInt();
+    int scored = sc.nextInt();
+    int  bowled = sc.nextInt();
+    
+    int overs = balls/6;
+    
+    float over_comp = (float)(bowled / 6);
+    float a = (float)bowled % 6 /10;
+    float overs_finished = over_comp + a;
+    
+    float run_rate = (float)scored / overs_finished;
+    
+    float total_run_rate = (float)runs / overs;
+    System.out.println(overs);
+    //System.out.println(a);
+    System.out.println(overs_finished);
+    System.out.printf("%.1f \n",run_rate);
+    System.out.printf("%.1f \n",total_run_rate);
+    
+    if(run_rate >= total_run_rate)
+    {
+      System.out.println("Eligible to Win");
+    }
+    else
+    {
+      System.out.println("Not Eligible to Win");
+    }
+  }
+}
